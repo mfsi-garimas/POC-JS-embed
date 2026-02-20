@@ -1,16 +1,30 @@
+console.log("LLM Script Loaded");
+
 (function () {
-    console.log("LLM Script Loaded");
 
-    const btn = document.createElement("button");
-    btn.innerText = "LLM Injected Button";
-    btn.style.position = "fixed";
-    btn.style.bottom = "20px";
-    btn.style.right = "20px";
-    btn.style.padding = "10px";
+    function init() {
+        console.log("Injecting button...");
 
-    btn.addEventListener("click", function () {
-        alert("LLM Embedded Script Working!");
-    });
+        const btn = document.createElement("button");
+        btn.innerText = "LLM Injected Button";
 
-    document.body.appendChild(btn);
+        btn.style.position = "fixed";
+        btn.style.bottom = "20px";
+        btn.style.right = "20px";
+        btn.style.padding = "10px";
+        btn.style.zIndex = "9999";
+
+        btn.addEventListener("click", function () {
+            alert("LLM Embedded Script Working!");
+        });
+
+        document.body.appendChild(btn);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", init);
+    } else {
+        init();
+    }
+
 })();
